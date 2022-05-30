@@ -1,0 +1,1 @@
+console.error("Error: Can't walk dependency graph: Cannot find module '/Users/nasiimamohamed/auguste/coursework/week_5/lap2-telegraph/client/static/js/index.js' from '/Users/nasiimamohamed/auguste/coursework/week_5/lap2-telegraph/client/static/js/_fake.js'\n    required by /Users/nasiimamohamed/auguste/coursework/week_5/lap2-telegraph/client/static/js/_fake.js");
