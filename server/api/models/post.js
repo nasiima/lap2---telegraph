@@ -1,4 +1,5 @@
-const init = require('../dbConfig')
+const { init } = require ('../dbConfig')
+const { ObjectId } = require('mongodb')
 module.exports = class Post {
   constructor(title, name, content) {
     (this.title = title), (this.name = name), (this.content = content);
