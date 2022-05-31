@@ -8,6 +8,9 @@ README.md for Projects
 Create a close replica of anonymous instant posting site [telegraph](https://telegra.ph/)
 
 ## Installation & usage
+
+Begin by cloning or downloading this repo.
+
 ### Server Setup
 
 >The server is hardcoded to run on port 3000
@@ -18,7 +21,8 @@ Create a close replica of anonymous instant posting site [telegraph](https://tel
 - to stop and remove all artifacts: `docker-compose down --volumes --remove-orphans`
 
 ### Client Setup
-Choose any option as you prefer:
+- `cd client`
+Choose the option you prefer:
 - Open index.html
 - Create a local webserver
 	- Navigate to the client folder
