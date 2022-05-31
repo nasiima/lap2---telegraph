@@ -1,3 +1,5 @@
+const { init } = require ('../dbConfig')
+const { ObjectId } = require('mongodb')
 module.exports = class Post {
   constructor(title, name, content) {
     (this.title = title), (this.name = name), (this.content = content);
@@ -6,8 +8,11 @@ module.exports = class Post {
     return new Promise(async (resolve, reject) => {
       try {
         const db = await init()
+        console.log("db",db)
         const postData = await db.collection('posts').find().toArray // converts db data to array
+        console.log("postData",postData)
         const posts = postData.map(p => new Post({...p, id: p._id})) // turns array back into Post objects
+        console.log("posts",posts)
         resolve(posts)
       } catch (err) {
         console.log(err);
