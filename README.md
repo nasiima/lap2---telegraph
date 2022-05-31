@@ -9,7 +9,7 @@ Begin by cloning or downloading this repo.
 
 ### Server Setup
 
->The server is hardcoded to run on port 3000
+>The server is hard-coded to run on port 3000
 
 - `cd server`
 - `docker compose up`
