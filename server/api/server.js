@@ -9,6 +9,6 @@ const postRoutes = require('./controllers/posts')
 server.use('/posts', postRoutes)
 
 // Root route
-server.get('/', (req, res) => res.send('Hello, client!'))
+server.get('/', (req, res) => res.status(200).send('Hello, client!'))
 
 module.exports = server
