@@ -6,6 +6,7 @@ Create a close replica of anonymous instant posting site [telegraph](https://tel
 ## Installation & usage
 
 Begin by cloning or downloading this repo.
+`https://github.com/nasiima/lap2---telegraph.git`
 
 ### Server Setup
 
@@ -24,6 +25,13 @@ Choose the option you prefer:
 	- Navigate to the client folder
 	- Run the following command: `python -m http.server`
 	- Navigate to [this address: localhost:8000](localhost:8000)
+
+## Challenges and Triumphs
+### MongoDB
+This was my first time linking mongodb to an api, and I learned a bit by choosing this db. After several difficult setbacks we reached a working MVP - Chris
+
+### Styling
+I feel like we came pretty close to matching the site's style, though there are still several subtle elements that I would like discover solutions for - Chris
 
 ## Technologies
 ![HTML5](https://img.shields.io/badge/-HTML5-%23E44D27?style=flat-square&logo=html5&logoColor=ffffff)
