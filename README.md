@@ -1,4 +1,4 @@
-# LAP 2 Project: Telegra.ph
+# LAP 2 Project: Telegraph
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?lines=Welcome+to+our+Lap+2+Project)](https://git.io/typing-svg)
 ## Project Goal
 Create a close replica of anonymous instant posting site [telegraph](https://telegra.ph/)
