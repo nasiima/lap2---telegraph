@@ -6,7 +6,9 @@ Create a close replica of anonymous instant posting site [telegraph](https://tel
 ## Installation & usage
 
 Begin by cloning or downloading this repo.
-`https://github.com/nasiima/lap2---telegraph.git`
+```
+git clone https://github.com/nasiima/lap2---telegraph.git
+```
 
 ### Server Setup
 
