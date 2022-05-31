@@ -1,18 +1,17 @@
 const { init } = require ('../dbConfig')
 const { ObjectId } = require('mongodb')
 class Post {
-  constructor(title, name, content) {
-    (this.title = title), (this.name = name), (this.content = content);
+  constructor(data) {
+    this.title = data.title, 
+    this.name = data.name,
+    this.content = data.content;
   }
   static get all() {
     return new Promise(async (resolve, reject) => {
       try {
         const db = await init()
-        console.log("db",db)
-        const postData = await db.collection('posts').find().toArray // converts db data to array
-        console.log("postData",postData)
+        const postData = await db.collection('posts').find().toArray() // converts db data to array
         const posts = postData.map(p => new Post({...p, id: p._id})) // turns array back into Post objects
-        console.log("posts",posts)
         resolve(posts)
       } catch (err) {
         console.log(err);
@@ -25,7 +24,7 @@ class Post {
       try {
         const db = await init();
         let postData = await db.collection('posts').insertOne({title, name, content})
-        console.log('postData.ops[0]',postData.ops[0]) // what the hell is this?
+        console.log('postData.ops[0]',postData.ops[0]) // what the hell is this ops[0]?
         let newPost = new Post(postData.ops[0])
         resolve(newPost);
       } catch (err) {
