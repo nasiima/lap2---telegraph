@@ -10,14 +10,16 @@
 </head>
 <body>
     <div class="wrapper">
-        <h1 id="heading">Telegraph</h1>
         <div>
-            <input type="text" placeholder="name">
+            <input dir="auto" id="title" contenteditable="true" type="text" placeholder="Title">
+        </div>
+        <div>
+            <input dir="auto" id="name" contenteditable="true" "type="text" placeholder="Your name">
         </div>
         <div>   
-            <input type="text" placeholder="Entry">
+            <input dir="auto" id="content" contenteditable="true" type="text" placeholder="Your story...">
         </div>
-        <button onsubmit="postEntry()">Publish</button>
+        <button class="button" onsubmit="postEntry()">PUBLISH</button>
         <div id="postSection"></div>
     </div>
 </body>

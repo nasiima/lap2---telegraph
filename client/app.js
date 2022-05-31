@@ -1,5 +1,3 @@
-
-
 // function to update content
 
 window.addEventListener('hashchange', updateContent); //fires when the URL hash changes from one to another
@@ -8,14 +6,7 @@ function updateContent() {
     const postSection = document.querySelector('#postSection')
     postSection.innerHTML = ''
     window.location.hash.substring(1) // returns complete string
-
 }
-
-
-
-
-
-
 
 async function postEntry(e){
     e.preventDefault();
@@ -32,7 +23,6 @@ async function postEntry(e){
         console.warn(err);
     }
 }
-
 
 async function getPost(id) {
     try {

@@ -8,14 +8,14 @@ h1{
     margin:0;
     padding:0;
 }
-
+/* global */
 body {
     display:flex;
     justify-content: center;
     width:100vw;
     height:100vh;
 }
-
+/* spacing */
 .wrapper {
     width:50vw;
     display: block;
@@ -23,10 +23,51 @@ body {
     justify-content: center; 
 }
 
-.wrapper h1 {
+.wrapper #title {
     margin-top:3rem;
+    font-size: 2rem;
+}
+.wrapper #name {
+    font-size: 0.9rem;
+}
+.wrapper #content {
+    font-size: 1rem;
 }
 
 .wrapper * {
     margin-bottom:0.5rem;
+    border:none;
+}
+
+input {
+    display: inline-block;
+    max-width:50vw;
+    outline: none;
+    overflow-wrap: anywhere;
+}
+
+/* button */
+.button {
+  background-color: #eeeded;
+  border: 2px solid #222222;
+  border-radius: 30px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 0.5rem;
+  margin-top: 1.8rem;
+  outline: none;
+  padding: 11px 15px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
 }
