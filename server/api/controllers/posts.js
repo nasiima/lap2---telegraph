@@ -1,20 +1,18 @@
 const express = require('express');
 const router = express.Router();
-
+const init = require('../dbConfig')
 const Post = require('../models/post')
 
 // post index route
-// should be make-new-post page?
-
-// post show route
-router.get('/:id', async(req,res) => {
+router.get('/', async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id)
-        res.status(200).json(post)
-    }   catch(err) {
-        res.status(404).json({err}) // why is this an obj?
+        const posts = await Post.all
+        res.status(200).json({posts})
+    } catch(err) {
+        res.status(500).json({err})
     }
 })
+
 
 // create post route
 router.post('/', async (req,res) => {
@@ -25,5 +23,15 @@ router.post('/', async (req,res) => {
         res.status(404).json({err})
     }
 })
+// post show route
+router.get('/:id', async(req,res) => {
+    try {
+        const post = await Post.findById(req.params.id)
+        res.status(200).json(post)
+    }   catch(err) {
+        res.status(404).json({err}) // why is this an obj?
+    }
+})
+
 
 module.exports = router;
