@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const init = require('../dbConfig')
 const Post = require('../models/post')
 
 // post index route
@@ -13,6 +12,7 @@ router.get('/', async (req, res) => {
     }
 })
 
+console.log("Hello World!")
 
 // create post route
 router.post('/', async (req,res) => {
