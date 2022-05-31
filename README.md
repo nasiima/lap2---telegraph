@@ -1,7 +1,3 @@
-README.md for Projects
-====================
-
----
 # LAP 2 Project: Telegra.ph
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?lines=Welcome+to+our+Lap+2+Project)](https://git.io/typing-svg)
 ## Project Goal
