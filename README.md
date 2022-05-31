@@ -1,7 +1,9 @@
 # lap2---telegraph
 
 ## Server Setup
-1. cd server/
-2. docker compose up
+- `cd server`
+- `docker compose up`
+- to stop and keep data `docker compose down`
+- to stop and remove all artifacts `docker-compose down --volumes --remove-orphans`
 
 ## Client Setup
