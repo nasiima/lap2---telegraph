@@ -1,6 +1,6 @@
 const { init } = require ('../dbConfig')
 const { ObjectId } = require('mongodb')
-module.exports = class Post {
+class Post {
   constructor(title, name, content) {
     (this.title = title), (this.name = name), (this.content = content);
   }
@@ -46,3 +46,5 @@ module.exports = class Post {
     });
   }
 };
+
+module.exports = Post;
