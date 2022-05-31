@@ -1,12 +1,23 @@
-module.exports = class Post {
-  constructor(title, name, content) {
-    (this.title = title), (this.name = name), (this.content = content);
+const { init } = require ('../dbConfig')
+const { ObjectId } = require('mongodb')
+
+let timestamp = new Date().toLocaleDateString()
+console.log("timestamp",timestamp)
+//.replaceAll("/","-")
+
+class Post {
+  constructor(data) {
+    this.title = data.title, 
+    this.name = data.name,
+    this.content = data.content
+    //this.post_id = `${timestamp}-${data.title}`
   }
+
   static get all() {
     return new Promise(async (resolve, reject) => {
       try {
         const db = await init()
-        const postData = await db.collection('posts').find().toArray // converts db data to array
+        const postData = await db.collection('posts').find().toArray() // converts db data to array
         const posts = postData.map(p => new Post({...p, id: p._id})) // turns array back into Post objects
         resolve(posts)
       } catch (err) {
@@ -15,12 +26,16 @@ module.exports = class Post {
       }
     });
   }
+
   static create(title, name, content) {
     return new Promise(async (resolve, reject) => {
       try {
+        // let post_id = `${timestamp}-${title}`
+        // const newPostCreateId = new Post({title,name,content,post_id}) // turns array back into Post
+        // const post = dogsData.find(d => d.id === id)
         const db = await init();
-        let postData = await db.collection('posts').insertOne({title, name, content})
-        console.log('postData.ops[0]',postData.ops[0]) // what the hell is this?
+        let postData = await db.collection('posts').insertOne({ title, name, content })
+        console.log('postData ***************************************************',postData)
         let newPost = new Post(postData.ops[0])
         resolve(newPost);
       } catch (err) {
@@ -41,3 +56,5 @@ module.exports = class Post {
     });
   }
 };
+
+module.exports = Post;
