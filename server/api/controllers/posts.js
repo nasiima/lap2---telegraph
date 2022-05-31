@@ -14,7 +14,6 @@ async function allPosts(req, res) {
 // create post route
 async function createPost(req,res) {
     try {
-        console.log("req",req)
         const post = await Post.create(req.body.title, req.body.name, req.body.content)
         res.status(201).json(post)
     } catch (err) {
