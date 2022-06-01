@@ -1,18 +1,16 @@
 
 
 
-const form = document.querySelector("form");
-form.addEventListener("submit", postEntry);
+// const form = document.querySelector("form");
+// form.addEventListener("submit", postEntry);
 
 
-// function updateContent() {
-//   const postSection = document.querySelector("#postSection");
-//   postSection.innerHTML = "";
-//   window.location.hash.substring(1); // returns complete string
-// }
 
-// window.addEventListener('load', updateContent); 
-// window.addEventListener('hashchange', updateContent); 
+const createForm = () => {
+  const body = document.querySelector("body");
+  body.innerHTML =
+    '<form><div class="wrapper"><div><input dir="auto" id="title" contenteditable="true" type="text" placeholder="Title"></div><div><input dir="auto" id="name" contenteditable="true" type="text" placeholder="Your name"></div><div><input dir="auto" id="content" contenteditable="true" type="text" placeholder="Your story..."></div><button class="button" onsubmit="postEntry()">PUBLISH</button><div id="postSection"></div></div></form>';
+  }
 
 
 
