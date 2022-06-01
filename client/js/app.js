@@ -67,6 +67,14 @@ const createName = (text) => {
   return div;
 };
 
+
+// create the content
+const createContent= (text) => {
+  const div = document.createElement("p");
+  div.classList.add("content");
+  div.innerText = text;
+  return div;
+};
     
   
 
