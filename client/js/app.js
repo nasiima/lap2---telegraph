@@ -1,4 +1,4 @@
-// function to update content
+
 
 
 const form = document.querySelector("form");
