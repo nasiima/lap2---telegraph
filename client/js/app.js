@@ -57,6 +57,16 @@ const createTitle = (text) => {
   return div;
 };
 
+
+// create the name
+const createName = (text) => {
+  const div = document.createElement("h4");
+  div.classList.add("name");
+  div.innerText = text;
+
+  return div;
+};
+
     
   
 
