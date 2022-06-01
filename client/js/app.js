@@ -48,68 +48,17 @@ async function postEntry(e) {
   }
 }
 
+  // create the title
+const createTitle = (text) => {
+  const div = document.createElement("h3");
+  div.classList.add("title");
+  div.innerText = text;
+
+  return div;
+};
+
+    
   
-
-function goToPost(id){
-    let url = window.location.href
-    let newUrl = url + `?${id}`
-    window.open(newUrl, "_self");
-}
-
-
-async function createPost() {
-    let url = window.location.href
-    let splitUrl = url.split("/?")
-    console.log(url)
-    // if (splitUrl[0] ===  )
-    const id = splitUrl[1];
-    
-    if (!(splitUrl[1] === undefined)){
-    await fetch(`http://localhost:3000/posts/${id}`)
-    .then(r => r.json())
-    .then(data =>{
-
-        const postSection = document.querySelector('#postSection')
-
-
-        const postBody = document.createElement('div')
-        postBody.className = 'postBody'
-
-        const title = document.createElement('h3')
-        title.className = 'title'
-        title.textContent = data.title        
-        
-        
-        const name = document.createElement('h4')
-        name.className = 'name'
-        name.textContent = data.name
-        
-        const content = document.createElement('p')
-        content.className = 'title'
-        content.textContent = data.content
-
-        postBody.appendChild(h3)
-        postBody.appendChild(h4)
-        postBody.appendChild(p)
-
-        postSection.appendChild(postBody)
-
-
-
-    
-    })
-    
-    
-    form.style.display = "none"
-    }
-    
-    
-    }
- 
-
-
-
-
 
   
 
