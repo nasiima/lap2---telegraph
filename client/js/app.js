@@ -1,6 +1,7 @@
 // function to update content
 
-window.addEventListener('hashchange', updateContent); //fires when the URL hash changes from one to another
+window.addEventListener('hashchange', updateContent); 
+window.addEventListener('load', updateContent);    //fires when the URL hash changes from one to another
 
 function updateContent() {
     const postSection = document.querySelector('#postSection')
@@ -24,16 +25,57 @@ async function postEntry(e){
     }
 }
 
+const postSection = document.querySelector('#postSection')
+
+function displayPost(data) {
+
+
+    const postBody = document.createElement('div')
+    postBody.className = 'postBody'
+
+    const form = document.createElement('form')
+    form.className = 'postForm'
+    form.id = data.id
+
+    const title = document.createElement('h3')
+    title.className = 'title'
+    title.textContent = data.title
+
+    const name = document.createElement('h4')
+    name.className = 'name'
+    name.textContent = data.name
+
+    const content = document.createElement('p')
+    content.className = 'title'
+    content.textContent = data.content
+
+
+    postBody.appendChild(form)
+    postBody.appendChild(h3)
+    postBody.appendChild(h4)
+    postBody.appendChild(p)
+
+    postSection.appendChild(postBody)
+
+}
+
+
 async function getPost(id) {
     try {
         const response = await fetch(`http://localhost:3000/posts/${id}`);
         const data = await response.json();
-        return data;
+        data.forEach(e => displayPost(e))
     } catch (err) {
         console.warn(err);
     }
 }
 
-module.exports = {
-    postEntry, getPost
-}
+
+
+
+
+
+
+// export default {
+//     postEntry, getPost, displayPost
+// }
