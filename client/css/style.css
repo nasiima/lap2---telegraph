@@ -71,3 +71,27 @@ input {
   -webkit-user-select: none;
   width: auto;
 }
+
+
+/* display post  */
+
+.title {
+    margin-top:3rem;
+    font-size: 2rem;
+}
+
+.name {
+    font-size: 0.9rem;
+}
+
+.content {
+    font-size: 1rem;
+}
+
+#postBody {
+    width:50vw;
+    display: block;
+    flex-flow:column nowrap;
+    justify-content: center; 
+
+}
