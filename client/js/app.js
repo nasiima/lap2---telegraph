@@ -16,10 +16,6 @@ form.addEventListener("submit", postEntry);
 
 
 
-
-
-
-
 async function postEntry(e) {
   e.preventDefault();
   // guard clause
@@ -47,7 +43,7 @@ async function postEntry(e) {
         data.name = postData.name;
         data.content = postData.content;
         const id = data.id;
-        getPost(id)
+        goToPost(id)
     })
 } catch (err) {
     console.warn(err);
@@ -56,18 +52,11 @@ async function postEntry(e) {
 
   
 
-async function getPost(id) {
-    try {
-        const response = await fetch(`http://localhost:3000/posts/${id}`);
-        const data = await response.json();
-        // data.forEach(e => createPost(e))
-        return data;
-    } catch (err) {
-        console.warn(err);
-    }
+function goToPost(id){
+    let url = window.location.href
+    let newUrl = url + `?${id}`
+    window.open(newUrl, "_self");
 }
-
-
 
 
 async function createPost() {
