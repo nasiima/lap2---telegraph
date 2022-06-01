@@ -96,6 +96,26 @@ const createPost = (title, name, content) => {
 };
 
 
+const updateContent = async () => {
+  try {
+    let hash = window.location.hash;
+    if (!hash) throw new Error();
+    let response = await getStory(hash.slice(1));
+    createPost(...response);
+  } catch (err) {
+    createForm();
+    const form = document.querySelector("form");
+    form.addEventListener("submit", postEntry);
+  }
+};
+
+
+updateContent();
+
+window.addEventListener("hashchange", updateContent);
+
+
+
   
 
   
