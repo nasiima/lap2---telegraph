@@ -77,13 +77,6 @@ class Post {
   }
 
 
-
-
-
-
-
-
-
 //   static findById(id) {
 //     return new Promise(async (resolve, reject) => {
 //       try {
@@ -98,7 +91,29 @@ class Post {
 //   }
 // };
 
+static findById(id) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      if (!id) throw new Error("No post id is specified.");
 
+      const db = await init();
+      const postsData = await db
+        .collection("posts")
+        .find({
+          post_id: parseInt(id),
+        })
+        .toArray();
+
+      if (!postsData.length) throw new Error("Post not found.");
+
+      const post = new Post(postsData[0]);
+      resolve(post);
+    } catch (err) {
+      reject(err);
+    }
+  });
+}
+};
 
 
 
