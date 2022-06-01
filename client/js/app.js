@@ -76,6 +76,26 @@ const createContent= (text) => {
   return div;
 };
     
+
+
+
+const createPost = (title, name, content) => {
+  const body = document.querySelector("body");
+  body.innerHTML = "";
+
+  const topDiv = document.createElement("div");
+  topDiv.appendChild(createTitle(title));
+  topDiv.appendChild(createName(name));
+
+  const div = document.createElement("div");
+  div.classList.add("postBody");
+  div.appendChild(topDiv);
+  div.appendChild(createContent(content));
+
+  body.appendChild(div);
+};
+
+
   
 
   
