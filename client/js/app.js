@@ -40,8 +40,8 @@ async function postEntry(e) {
         data.title = postData.title;
         data.name = postData.name;
         data.content = postData.content;
-        const id = data.id;
-        goToPost(id)
+        console.log(data.post_id);
+        window.location.hash = `${data.post_id}`;
     })
 } catch (err) {
     console.warn(err);
