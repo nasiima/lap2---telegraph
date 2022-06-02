@@ -1,18 +1,16 @@
 
 
 
-const form = document.querySelector("form");
-form.addEventListener("submit", postEntry);
+// const form = document.querySelector("form");
+// form.addEventListener("submit", postEntry);
 
 
-// function updateContent() {
-//   const postSection = document.querySelector("#postSection");
-//   postSection.innerHTML = "";
-//   window.location.hash.substring(1); // returns complete string
-// }
 
-// window.addEventListener('load', updateContent); 
-// window.addEventListener('hashchange', updateContent); 
+const createForm = () => {
+  const body = document.querySelector("body");
+  body.innerHTML =
+    '<form><div class="wrapper"><div><input dir="auto" id="title" contenteditable="true" type="text" placeholder="Title"></div><div><input dir="auto" id="name" contenteditable="true" type="text" placeholder="Your name"></div><div><input dir="auto" id="content" contenteditable="true" type="text" placeholder="Your story..."></div><button class="button" onsubmit="postEntry()">PUBLISH</button><div id="postSection"></div></div></form>';
+  }
 
 
 
@@ -42,76 +40,83 @@ async function postEntry(e) {
         data.title = postData.title;
         data.name = postData.name;
         data.content = postData.content;
-        const id = data.id;
-        goToPost(id)
+        console.log(data.post_id);
+        window.location.hash = `${data.post_id}`;
     })
 } catch (err) {
     console.warn(err);
   }
 }
 
+  // create the title
+const createTitle = (text) => {
+  const div = document.createElement("h3");
+  div.classList.add("title");
+  div.innerText = text;
+
+  return div;
+};
+
+
+// create the name
+const createName = (text) => {
+  const div = document.createElement("h4");
+  div.classList.add("name");
+  div.innerText = text;
+
+  return div;
+};
+
+
+// create the content
+const createContent= (text) => {
+  const div = document.createElement("p");
+  div.classList.add("content");
+  div.innerText = text;
+  return div;
+};
+    
+
+
+
+const createPost = (title, name, content) => {
+  const body = document.querySelector("body");
+  body.innerHTML = "";
+
+  const topDiv = document.createElement("div");
+  topDiv.appendChild(createTitle(title));
+  topDiv.appendChild(createName(name));
+
+  const div = document.createElement("div");
+  div.classList.add("postBody");
+  div.appendChild(topDiv);
+  div.appendChild(createContent(content));
+
+  body.appendChild(div);
+};
+
+
+const updateContent = async () => {
+  try {
+    let hash = window.location.hash;
+    if (!hash) throw new Error();
+    let response = await getStory(hash.slice(1));
+    createPost(...response);
+  } catch (err) {
+    createForm();
+    const form = document.querySelector("form");
+    form.addEventListener("submit", postEntry);
+  }
+};
+
+
+updateContent();
+
+window.addEventListener("hashchange", updateContent);
+
+
+
   
-
-function goToPost(id){
-    let url = window.location.href
-    let newUrl = url + `?${id}`
-    window.open(newUrl, "_self");
-}
-
-
-async function createPost() {
-    let url = window.location.href
-    let splitUrl = url.split("/?")
-    console.log(url)
-    // if (splitUrl[0] ===  )
-    const id = splitUrl[1];
-    
-    if (!(splitUrl[1] === undefined)){
-    await fetch(`http://localhost:3000/posts/${id}`)
-    .then(r => r.json())
-    .then(data =>{
-
-        const postSection = document.querySelector('#postSection')
-
-
-        const postBody = document.createElement('div')
-        postBody.className = 'postBody'
-
-        const title = document.createElement('h3')
-        title.className = 'title'
-        title.textContent = data.title        
-        
-        
-        const name = document.createElement('h4')
-        name.className = 'name'
-        name.textContent = data.name
-        
-        const content = document.createElement('p')
-        content.className = 'title'
-        content.textContent = data.content
-
-        postBody.appendChild(h3)
-        postBody.appendChild(h4)
-        postBody.appendChild(p)
-
-        postSection.appendChild(postBody)
-
-
-
-    
-    })
-    
-    
-    form.style.display = "none"
-    }
-    
-    
-    }
- 
-
-
-
-
 
   
 
