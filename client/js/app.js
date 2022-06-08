@@ -12,6 +12,24 @@ const createForm = () => {
     '<form><div class="wrapper"><div><input dir="auto" id="title" contenteditable="true" type="text" placeholder="Title"></div><div><input dir="auto" id="name" contenteditable="true" type="text" placeholder="Your name"></div><div><input dir="auto" id="content" contenteditable="true" type="text" placeholder="Your story..."></div><button class="button" onsubmit="postEntry()">PUBLISH</button><div id="postSection"></div></div></form>';
   }
 
+  const getStory = (id) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const response = await fetch(`http://localhost:3000/posts/${id}`);
+        const data = await response.json();
+        resolve([data.title, data.name, data.content]);
+      } catch (err) {
+        alert(err.message);
+        reject(err);
+      }
+    });
+  };
+
+
+
+
+
+
 
 
 async function postEntry(e) {
@@ -76,8 +94,6 @@ const createContent= (text) => {
   return div;
 };
     
-
-
 
 const createPost = (title, name, content) => {
   const body = document.querySelector("body");
